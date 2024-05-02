@@ -1,0 +1,622 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1ywe46g6lc7l"]
+
+[ext_resource type="Script" path="res://scripts/visual.gd" id="1_kya5p"]
+
+[node name="GraphEdit" type="GraphEdit"]
+show_behind_parent = true
+clip_contents = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+show_grid = false
+show_zoom_label = true
+script = ExtResource("1_kya5p")
+
+[node name="Value" type="GraphNode" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 119.0
+offset_right = 326.0
+offset_bottom = 271.0
+mouse_filter = 1
+position_offset = Vector2(76, 119)
+title = "Value"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+
+[node name="int" type="SpinBox" parent="Value" groups=["value"]]
+layout_mode = 2
+allow_greater = true
+prefix = "int"
+
+[node name="float" type="SpinBox" parent="Value" groups=["value"]]
+layout_mode = 2
+prefix = "float:"
+
+[node name="vec2" type="HBoxContainer" parent="Value" groups=["value"]]
+layout_mode = 2
+
+[node name="x" type="SpinBox" parent="Value/vec2"]
+layout_mode = 2
+size_flags_horizontal = 3
+prefix = "x:"
+
+[node name="y" type="SpinBox" parent="Value/vec2"]
+layout_mode = 2
+size_flags_horizontal = 3
+prefix = "y:"
+
+[node name="Variable" type="GraphNode" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 112.0
+offset_right = 623.0
+offset_bottom = 265.0
+mouse_filter = 1
+position_offset = Vector2(440, 112)
+title = "Variable"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = true
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+
+[node name="phase" type="Label" parent="Variable" groups=["float", "variable"]]
+layout_mode = 2
+text = "float phase = 0"
+
+[node name="hz" type="Label" parent="Variable"]
+layout_mode = 2
+text = "float hz = 440"
+
+[node name="rate" type="Label" parent="Variable"]
+layout_mode = 2
+text = "float rate = 44100"
+
+[node name="increment" type="Label" parent="Variable"]
+layout_mode = 2
+text = "float increment = 0"
+
+[node name="Const" type="GraphNode" parent="."]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 122.0
+offset_right = 811.0
+offset_bottom = 200.0
+mouse_filter = 1
+position_offset = Vector2(743, 122)
+title = "Const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+
+[node name="TAU" type="Label" parent="Const" groups=["const"]]
+layout_mode = 2
+text = "TAU"
+
+[node name="Operator" type="GraphNode" parent="."]
+layout_mode = 0
+offset_left = 921.0
+offset_top = 64.0
+offset_right = 1000.0
+offset_bottom = 242.0
+mouse_filter = 1
+position_offset = Vector2(921, 64)
+title = "Operator"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+
+[node name="none" type="Label" parent="Operator" groups=["operator"]]
+layout_mode = 2
+text = "none"
+
+[node name="+" type="Label" parent="Operator" groups=["operator"]]
+layout_mode = 2
+text = "+"
+
+[node name="-" type="Label" parent="Operator" groups=["operator"]]
+layout_mode = 2
+text = "-"
+
+[node name="*" type="Label" parent="Operator" groups=["operator"]]
+layout_mode = 2
+text = "*"
+
+[node name="\\" type="Label" parent="Operator" groups=["operator"]]
+layout_mode = 2
+text = "/"
+
+[node name="Separator" type="GraphNode" parent="."]
+layout_mode = 0
+offset_left = 1255.0
+offset_top = 76.0
+offset_right = 1340.0
+offset_bottom = 179.0
+mouse_filter = 1
+position_offset = Vector2(1255, 76)
+title = "Separator"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+
+[node name="()" type="Label" parent="Separator" groups=["separator"]]
+layout_mode = 2
+text = "()"
+
+[node name="[]" type="Label" parent="Separator" groups=["separator"]]
+layout_mode = 2
+text = "[]"
+
+[node name="Method" type="GraphNode" parent="."]
+layout_mode = 0
+offset_left = 1554.0
+offset_top = 91.0
+offset_right = 1631.0
+offset_bottom = 194.0
+mouse_filter = 1
+position_offset = Vector2(1554, 91)
+title = "Method"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+
+[node name="sin" type="Label" parent="Method" groups=["method"]]
+layout_mode = 2
+text = "sin"
+
+[node name="fmod" type="Label" parent="Method" groups=["method"]]
+layout_mode = 2
+text = "fmod"
+
+[node name="Result" type="GraphNode" parent="."]
+layout_mode = 0
+offset_left = 1785.0
+offset_top = 122.0
+offset_right = 1844.0
+offset_bottom = 200.0
+mouse_filter = 1
+position_offset = Vector2(1785, 122)
+title = "Result"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+
+[node name="Label" type="Label" parent="Result" groups=["result"]]
+layout_mode = 2
+text = "OK"
+
+[node name="Code2" type="GraphNode" parent="."]
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 0
+offset_left = 999.0
+offset_top = 583.0
+offset_right = 1255.0
+offset_bottom = 810.0
+mouse_filter = 1
+position_offset = Vector2(999, 583)
+title = "Code"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = false
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = true
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = true
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color(1, 1, 1, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = true
+slot/5/right_type = 0
+slot/5/right_color = Color(1, 1, 1, 1)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
+
+[node name="Code" type="Label" parent="Code2" groups=["code", "main"]]
+layout_mode = 2
+text = "( sin(phase * TAU) )"
+
+[node name="sin" type="Button" parent="Code2" groups=["code", "method"]]
+layout_mode = 2
+text = "sin"
+
+[node name="(" type="Label" parent="Code2" groups=["code", "separator"]]
+layout_mode = 2
+text = "("
+
+[node name="phase" type="Button" parent="Code2" groups=["code", "operator", "variable"]]
+layout_mode = 2
+text = "phase *"
+
+[node name="Label3" type="Button" parent="Code2" groups=["code", "const"]]
+layout_mode = 2
+text = "TAU"
+
+[node name="Separator2" type="Label" parent="Code2" groups=["code", "separator"]]
+layout_mode = 2
+text = ")"
+
+[node name="Code3" type="GraphNode" parent="."]
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 0
+offset_left = -65.0
+offset_top = 511.0
+offset_right = 191.0
+offset_bottom = 655.0
+mouse_filter = 1
+position_offset = Vector2(-65, 511)
+title = "Code"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+
+[node name="Code" type="Label" parent="Code3" groups=["code", "main", "operator"]]
+layout_mode = 2
+text = "( hz / rate )"
+
+[node name="hz" type="Button" parent="Code3" groups=["code", "float"]]
+layout_mode = 2
+text = "hz /"
+
+[node name="hz2" type="Button" parent="Code3" groups=["code", "float"]]
+layout_mode = 2
+text = "rate"
+
+[node name="Code4" type="GraphNode" parent="."]
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 0
+offset_left = 993.0
+offset_top = -326.0
+offset_right = 1274.0
+offset_bottom = -41.0
+mouse_filter = 1
+position_offset = Vector2(993, -326)
+title = "Code"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = false
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = true
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = true
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color(1, 1, 1, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = true
+slot/5/right_type = 0
+slot/5/right_color = Color(1, 1, 1, 1)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color(1, 1, 1, 1)
+slot/6/left_icon = null
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color(1, 1, 1, 1)
+slot/6/right_icon = null
+slot/6/draw_stylebox = true
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color(1, 1, 1, 1)
+slot/7/left_icon = null
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color(1, 1, 1, 1)
+slot/7/right_icon = null
+slot/7/draw_stylebox = true
+
+[node name="Code" type="Label" parent="Code4" groups=["code", "main"]]
+layout_mode = 2
+text = "( fmod(phase + increment, 1.0) )"
+
+[node name="fmod" type="Button" parent="Code4" groups=["code", "method"]]
+layout_mode = 2
+text = "fmod"
+
+[node name="(" type="Label" parent="Code4" groups=["code", "separator"]]
+layout_mode = 2
+text = "("
+
+[node name="phase" type="Button" parent="Code4" groups=["code", "operator", "variable"]]
+layout_mode = 2
+text = "phase +"
+
+[node name="Label3" type="Button" parent="Code4" groups=["code", "const"]]
+layout_mode = 2
+text = "increment"
+
+[node name="Separator2" type="Label" parent="Code4" groups=["code", "separator"]]
+layout_mode = 2
+text = ","
+
+[node name="Label4" type="Button" parent="Code4" groups=["code", "const"]]
+layout_mode = 2
+text = "1.0"
+
+[node name="Separator3" type="Label" parent="Code4" groups=["code", "separator"]]
+layout_mode = 2
+text = ")"
+
+[node name="System" type="GraphNode" parent="."]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 680.0
+offset_right = 545.0
+offset_bottom = 783.0
+mouse_filter = 1
+position_offset = Vector2(356, 680)
+title = "System"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+
+[node name="delta_frame" type="Label" parent="System"]
+layout_mode = 2
+text = "int delta_frame = 0"
+
+[node name="buffer_frame" type="Label" parent="System"]
+layout_mode = 2
+text = "int buffer_frame = 0"
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="connection_request" from="." to="." method="_on_connection_request"]

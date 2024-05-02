@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw7dt6ee1gt2j"]
+
+[ext_resource type="Script" path="res://scripts/test3d.gd" id="1_c502g"]
+[ext_resource type="Shader" path="res://scenes/wave.gdshader" id="2_i3hk5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gauaf"]
+render_priority = 0
+shader = ExtResource("2_i3hk5")
+shader_parameter/wave = Vector3(0.5, 440, 44100)
+shader_parameter/time = 1.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_fd5bh"]
+material = SubResource("ShaderMaterial_gauaf")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_c502g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_fd5bh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.680267)

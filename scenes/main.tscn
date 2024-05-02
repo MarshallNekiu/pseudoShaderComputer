@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://cx7jg6ued6xlp"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_3mj1a"]
+[ext_resource type="Script" path="res://scripts/audio.gd" id="2_cxphi"]
+[ext_resource type="Shader" path="res://scripts/track.gdshader" id="3_a72p4"]
+[ext_resource type="Shader" path="res://scenes/wave.gdshader" id="3_iabgd"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="4_leslq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_phu4u"]
+shader = ExtResource("3_a72p4")
+shader_parameter/wave = Vector3(0, 440, 44100)
+shader_parameter/time = 1.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_hqii2"]
+buffer_length = 0.15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63eor"]
+render_priority = 0
+shader = ExtResource("3_iabgd")
+shader_parameter/wave = Vector3(0, 440, 44100)
+shader_parameter/time = 1.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_ns373"]
+material = SubResource("ShaderMaterial_63eor")
+is_hemisphere = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gnic0"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_3mj1a")
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Canvas"]
+offset_left = 244.0
+offset_top = 75.0
+offset_right = 284.0
+offset_bottom = 98.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Canvas"]
+offset_right = 100.0
+offset_bottom = 100.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Canvas/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(100, 100)
+render_target_update_mode = 4
+
+[node name="Track" type="ColorRect" parent="Canvas/SubViewportContainer/SubViewport"]
+material = SubResource("ShaderMaterial_phu4u")
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="Cam" type="Camera3D" parent="."]
+transform = Transform3D(-0.990103, 0, 0.140343, 0, 1, 0, -0.140343, 0, -0.990102, 0, 0, 0)
+
+[node name="Sun" type="DirectionalLight3D" parent="Cam"]
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 2.44249e-15, 4.09782e-08, 0, 1, -5.96047e-08, -4.09782e-08, 5.96047e-08, 1, 0, 1, 0)
+stream = SubResource("AudioStreamGenerator_hqii2")
+autoplay = true
+max_distance = 5.0
+script = ExtResource("2_cxphi")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141746, 0, 1)
+motion_mode = 1
+script = ExtResource("4_leslq")
+
+[node name="Mesh" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("SphereMesh_ns373")
+
+[node name="Collision" type="CollisionShape3D" parent="Player"]
+shape = SubResource("SphereShape3D_gnic0")

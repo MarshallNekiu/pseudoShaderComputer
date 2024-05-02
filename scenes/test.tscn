@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bmu6p52mtgwuw"]
+
+[node name="Test" type="Node2D"]
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

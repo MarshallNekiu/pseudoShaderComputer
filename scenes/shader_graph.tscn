@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhjhmwwbb8ykp"]
+
+[ext_resource type="Script" path="res://scripts/shader_graph.gd" id="1_1pbh4"]
+[ext_resource type="Shader" path="res://scripts/shader_graph.gdshader" id="1_60omy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7lrv"]
+shader = ExtResource("1_60omy")
+shader_parameter/integer = PackedInt32Array(-20, -40, -60, -80, -100)
+
+[node name="ShaderGraph" type="Node2D"]
+script = ExtResource("1_1pbh4")
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+show_grid = false
+
+[node name="Output" type="GraphNode" parent="GraphEdit"]
+layout_mode = 0
+offset_left = 726.0
+offset_top = 426.0
+offset_right = 1296.0
+offset_bottom = 790.0
+mouse_filter = 1
+position_offset = Vector2(726, 426)
+title = "Output"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+
+[node name="Label" type="Label" parent="GraphEdit/Output"]
+layout_mode = 2
+text = "vec2 st = FRAGCOORD.xy / (1.0/SCREEN_PIXEL_SIZE);
+    float pixel = (st.x + st.y * 100.) - 0.5;
+    float pos = 9901.0;
+    COLOR.a = pixel <= pos * 0.01 ? 1.0 : 0.0;"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(100, 100)
+render_target_update_mode = 4
+
+[node name="Output" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+light_mask = 3
+material = SubResource("ShaderMaterial_t7lrv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
